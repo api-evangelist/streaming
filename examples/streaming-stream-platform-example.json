@@ -1,0 +1,22 @@
+{
+  "id": "apache-kafka",
+  "name": "Apache Kafka",
+  "vendor": "Apache Software Foundation",
+  "category": "log-structured-broker",
+  "deployment_model": "self-hosted",
+  "license": "Apache-2.0",
+  "protocols": ["kafka-wire", "http"],
+  "client_languages": ["Java", "Scala", "Python", "Go", "C", "C++", "Rust", ".NET", "Node.js"],
+  "delivery_guarantees": ["at-most-once", "at-least-once", "exactly-once"],
+  "ordering": "per-partition",
+  "schema_registry": true,
+  "tiered_storage": true,
+  "geo_replication": true,
+  "kubernetes_native": true,
+  "urls": {
+    "home": "https://kafka.apache.org",
+    "docs": "https://kafka.apache.org/documentation/",
+    "github": "https://github.com/apache/kafka"
+  },
+  "tags": ["Streaming", "Log", "Open Source", "Apache Software Foundation"]
+}

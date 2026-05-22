@@ -1,0 +1,26 @@
+{
+  "id": "kafka://prod-east-1/orders.events",
+  "name": "orders.events",
+  "description": "Customer-facing order lifecycle events emitted by the checkout service.",
+  "platform": "apache-kafka",
+  "namespace": "retail-prod",
+  "partitions": 24,
+  "replication_factor": 3,
+  "retention": {
+    "mode": "time",
+    "duration": "P7D"
+  },
+  "ordering_key": "order_id",
+  "delivery_guarantee": "exactly-once",
+  "schema": {
+    "format": "avro",
+    "registry": "https://schema-registry.retail-prod.example.com",
+    "subject": "orders.events-value",
+    "version": 7
+  },
+  "encoding": "avro",
+  "tiered_storage": true,
+  "created": "2026-01-14T09:21:00Z",
+  "updated": "2026-05-20T15:02:33Z",
+  "tags": ["Retail", "Orders", "Production"]
+}

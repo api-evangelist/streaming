@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/streaming/main/json-schema/streaming-stream-schema.json",
+  "title": "Stream",
+  "description": "A named, partitioned, append-only sequence of records hosted by a streaming platform (e.g. a Kafka topic, Pulsar topic, Kinesis stream, Pub/Sub topic). Describes how the stream is shaped on the wire, not its payload schema.",
+  "type": "object",
+  "required": ["id", "name", "platform"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable, platform-scoped identifier for the stream (URN, ARN, FQTN, etc.)."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the stream / topic."
+    },
+    "description": {
+      "type": "string",
+      "description": "Free-text description of what the stream contains."
+    },
+    "platform": {
+      "type": "string",
+      "description": "The streaming platform hosting this stream.",
+      "enum": [
+        "apache-kafka",
+        "apache-pulsar",
+        "redpanda",
+        "nats-jetstream",
+        "aws-kinesis",
+        "gcp-pubsub",
+        "azure-event-hubs",
+        "confluent-cloud",
+        "streamnative",
+        "other"
+      ]
+    },
+    "namespace": {
+      "type": "string",
+      "description": "Multi-tenant namespace, project, or tenant under which the stream lives (Pulsar tenant/namespace, GCP project, etc.)."
+    },
+    "partitions": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of partitions / shards. Bounds parallelism for consumers."
+    },
+    "replication_factor": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of replicas maintained per partition for durability."
+    },
+    "retention": {
+      "type": "object",
+      "description": "Retention policy for records in the stream.",
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["time", "size", "compact", "compact_and_delete", "infinite"]
+        },
+        "duration": {
+          "type": "string",
+          "description": "ISO 8601 duration if mode is 'time' (e.g. P7D)."
+        },
+        "max_bytes": {
+          "type": "integer",
+          "description": "Maximum total bytes if mode is 'size'."
+        }
+      }
+    },
+    "ordering_key": {
+      "type": "string",
+      "description": "The record key (or partition-key strategy) used to assign records to partitions and to define ordering scope."
+    },
+    "delivery_guarantee": {
+      "type": "string",
+      "enum": ["at-most-once", "at-least-once", "exactly-once"],
+      "description": "Delivery guarantee offered by the platform configuration for this stream."
+    },
+    "schema": {
+      "type": "object",
+      "description": "Reference to the record schema for this stream.",
+      "properties": {
+        "format": { "type": "string", "enum": ["avro", "protobuf", "json-schema", "thrift", "raw"] },
+        "registry": { "type": "string", "format": "uri", "description": "URL of the Schema Registry holding the schema." },
+        "subject": { "type": "string", "description": "Schema Registry subject name." },
+        "version": { "type": ["string", "integer"], "description": "Schema version." }
+      }
+    },
+    "encoding": {
+      "type": "string",
+      "enum": ["binary", "json", "text", "protobuf", "avro"],
+      "description": "On-the-wire encoding of records."
+    },
+    "tiered_storage": {
+      "type": "boolean",
+      "description": "Whether older segments are offloaded to object storage."
+    },
+    "created": { "type": "string", "format": "date-time" },
+    "updated": { "type": "string", "format": "date-time" },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

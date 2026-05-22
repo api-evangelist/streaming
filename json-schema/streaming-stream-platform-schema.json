@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/streaming/main/json-schema/streaming-stream-platform-schema.json",
+  "title": "Stream Platform",
+  "description": "Catalog record for a streaming platform — Kafka, Pulsar, Redpanda, NATS JetStream, Kinesis, Event Hubs, Pub/Sub, Confluent Cloud, etc. Describes the platform's identity, deployment model, supported protocols, and the URLs needed to operate against it.",
+  "type": "object",
+  "required": ["id", "name", "category"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable identifier for the platform (slug)."
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the platform."
+    },
+    "vendor": {
+      "type": "string",
+      "description": "Organization that maintains the platform (Apache Software Foundation, AWS, Google, Microsoft, Confluent, Redpanda Data, Synadia, StreamNative, etc.)."
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "log-structured-broker",
+        "message-broker",
+        "managed-stream",
+        "pubsub",
+        "stream-processor",
+        "connector-framework",
+        "cdc",
+        "streaming-protocol"
+      ],
+      "description": "What kind of streaming component this is."
+    },
+    "deployment_model": {
+      "type": "string",
+      "enum": ["self-hosted", "managed", "serverless", "hybrid", "spec"],
+      "description": "How customers consume the platform."
+    },
+    "license": {
+      "type": "string",
+      "description": "Source license (Apache-2.0, BSL, proprietary, etc.)."
+    },
+    "protocols": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "kafka-wire",
+          "pulsar-binary",
+          "amqp",
+          "mqtt",
+          "nats",
+          "stomp",
+          "grpc",
+          "http",
+          "http2",
+          "websocket",
+          "sse"
+        ]
+      },
+      "description": "Wire protocols supported by the platform."
+    },
+    "client_languages": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Officially supported client SDK languages."
+    },
+    "delivery_guarantees": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["at-most-once", "at-least-once", "exactly-once"]
+      }
+    },
+    "ordering": {
+      "type": "string",
+      "enum": ["per-partition", "per-key", "global", "best-effort"]
+    },
+    "schema_registry": {
+      "type": "boolean",
+      "description": "Whether the platform integrates with a Schema Registry."
+    },
+    "tiered_storage": {
+      "type": "boolean"
+    },
+    "geo_replication": {
+      "type": "boolean"
+    },
+    "kubernetes_native": {
+      "type": "boolean",
+      "description": "Whether the platform is operated via Kubernetes CRDs (Strimzi, Pulsar Operator, etc.)."
+    },
+    "urls": {
+      "type": "object",
+      "properties": {
+        "home": { "type": "string", "format": "uri" },
+        "docs": { "type": "string", "format": "uri" },
+        "github": { "type": "string", "format": "uri" },
+        "pricing": { "type": "string", "format": "uri" },
+        "status": { "type": "string", "format": "uri" }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

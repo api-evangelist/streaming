@@ -1,0 +1,249 @@
+name: Streaming Vocabulary
+description: >-
+  Domain vocabulary for streaming systems — the protocols, platforms, and
+  processing engines that move and transform real-time, high-volume data.
+  Covers log-structured and broker-based platforms, over-the-wire streaming
+  protocols (SSE, WebSocket, gRPC streaming, GraphQL subscriptions), the
+  change-data-capture and connector tier, and the stream-processing layer
+  with its event-time semantics (watermarks, windows, exactly-once).
+modified: '2026-05-22'
+terms:
+  - term: Stream
+    definition: >-
+      An ordered, potentially unbounded sequence of records produced by one or
+      more publishers and consumed by one or more subscribers, typically with
+      durable, replayable storage.
+    related: [Topic, Partition, Record, Log]
+  - term: Topic
+    definition: >-
+      A named, durable category of records on a streaming platform. Producers
+      append records to a topic; consumers subscribe to it. Topics are usually
+      partitioned for parallelism.
+    related: [Partition, Stream, ConsumerGroup]
+  - term: Partition
+    definition: >-
+      A shard of a topic. A partition is an ordered, append-only log; ordering
+      guarantees are per-partition, not per-topic. Partitions are the unit of
+      parallelism for both producers and consumers.
+    related: [Topic, Offset, Replica]
+  - term: Offset
+    definition: >-
+      A monotonically increasing integer identifying a record's position
+      within a partition. Consumers track their progress by committing the
+      offset of the last successfully processed record.
+    related: [Partition, ConsumerGroup, Checkpoint]
+  - term: Record
+    definition: >-
+      The unit of data on a stream. Typically `{key, value, timestamp, headers,
+      partition, offset}`. The key is often used to assign the record to a
+      partition.
+    related: [Stream, Topic, Partition, Headers]
+  - term: Producer
+    definition: >-
+      A client that appends records to a topic. Producers choose a partition
+      (explicitly or via a partitioning function over the record key) and
+      may batch and compress records.
+    related: [Topic, Partition, Record]
+  - term: Consumer
+    definition: >-
+      A client that reads records from one or more partitions, tracking its
+      offset to resume after restart.
+    related: [ConsumerGroup, Offset, Partition]
+  - term: ConsumerGroup
+    definition: >-
+      A set of cooperating consumers that share the work of reading a topic.
+      Each partition is assigned to exactly one consumer in the group; adding
+      consumers up to the partition count increases parallelism.
+    related: [Consumer, Partition, Rebalance]
+  - term: Broker
+    definition: >-
+      A server in a streaming cluster that hosts partitions, serves producers
+      and consumers, and participates in replication.
+    related: [Cluster, Replica, Topic]
+  - term: Cluster
+    definition: >-
+      A coordinated set of brokers (and metadata servers like KRaft, ZooKeeper,
+      or BookKeeper) that together host topics and provide a streaming service.
+    related: [Broker, Replica]
+  - term: Replica
+    definition: >-
+      A copy of a partition on a broker. One replica is the leader (handles
+      reads and writes); the others are followers (replicate from the leader).
+      Replication factor controls durability.
+    related: [Partition, Broker, ISR]
+  - term: ISR
+    definition: >-
+      "In-Sync Replicas" — the set of follower replicas that are caught up
+      with the leader. Acks=all writes require ISR confirmation.
+    related: [Replica, Acks, Durability]
+  - term: Log
+    definition: >-
+      The append-only, on-disk data structure that underlies a partition.
+      Records are written sequentially; readers seek by offset. The "log" is
+      the foundational abstraction of log-structured streaming platforms.
+    related: [Partition, Segment, Retention]
+  - term: Segment
+    definition: >-
+      A file on disk that stores a contiguous range of records within a
+      partition. Logs are split into segments to enable retention, compaction,
+      and tiered storage.
+    related: [Log, Retention, Compaction]
+  - term: Retention
+    definition: >-
+      The policy that determines how long records remain in a topic — by time,
+      by total size, or indefinitely with compaction.
+    related: [Log, Segment, Compaction]
+  - term: Compaction
+    definition: >-
+      A retention strategy that keeps only the latest record for each key,
+      letting the topic act as a changelog of the latest state per key.
+    related: [Retention, Log, Changelog]
+  - term: Changelog
+    definition: >-
+      A compacted topic that represents the current state of a keyed dataset
+      as an evolving log; a foundational construct of CDC and stream-processor
+      state stores.
+    related: [Compaction, ChangeDataCapture, State]
+  - term: ChangeDataCapture
+    definition: >-
+      The practice of streaming row-level changes from a database's
+      replication log into a streaming platform so downstream consumers
+      observe inserts, updates, and deletes in order.
+    related: [Debezium, Changelog, Connector]
+  - term: Connector
+    definition: >-
+      A reusable component that moves data between a streaming platform and
+      an external system. Source connectors ingest into the platform; sink
+      connectors deliver out. Kafka Connect is the canonical framework.
+    related: [Source, Sink, Pipeline]
+  - term: Watermark
+    definition: >-
+      A monotonically advancing logical time signal a stream processor uses
+      to reason about event-time completeness — "no more events with
+      event-time ≤ w are expected." Watermarks decide when windows fire.
+    related: [EventTime, Window, Trigger]
+  - term: EventTime
+    definition: >-
+      The time at which an event actually occurred (carried by the record's
+      timestamp), as distinguished from processing time. Event-time semantics
+      are essential to correct, replayable stream processing.
+    related: [ProcessingTime, Watermark, Window]
+  - term: ProcessingTime
+    definition: >-
+      The wall-clock time at which an event is observed by the processor.
+      Easier to reason about, but non-deterministic across replays.
+    related: [EventTime, Watermark]
+  - term: Window
+    definition: >-
+      A bounded slice of an unbounded stream — fixed (tumbling), sliding,
+      or session — over which an aggregation is computed.
+    related: [Tumbling, Sliding, Session, Watermark]
+  - term: Trigger
+    definition: >-
+      A rule that decides when a window emits a result (early, on time, late,
+      on count). Combined with watermarks, triggers determine the
+      latency/completeness trade-off.
+    related: [Window, Watermark]
+  - term: ExactlyOnce
+    definition: >-
+      A delivery guarantee where each record's effect on downstream state is
+      applied exactly once despite retries and failures — achieved through
+      idempotent producers, transactional writes, and coordinated checkpoints.
+    related: [Transaction, Idempotence, Checkpoint]
+  - term: AtLeastOnce
+    definition: >-
+      A delivery guarantee where each record is delivered at least once;
+      duplicates are possible and must be handled by the consumer.
+    related: [ExactlyOnce, Idempotence]
+  - term: AtMostOnce
+    definition: >-
+      A delivery guarantee where each record is delivered zero or one times;
+      loss is possible. Lowest latency, weakest durability.
+    related: [AtLeastOnce, ExactlyOnce]
+  - term: Idempotence
+    definition: >-
+      A property of producers (or downstream operations) such that retried
+      writes do not produce duplicates. A precondition for exactly-once.
+    related: [ExactlyOnce, Transaction]
+  - term: Transaction
+    definition: >-
+      A grouping of producer writes (and consumer offset commits) that commit
+      atomically across multiple partitions/topics — the building block of
+      exactly-once across streams.
+    related: [ExactlyOnce, Idempotence, Offset]
+  - term: Checkpoint
+    definition: >-
+      A periodic, consistent snapshot of a stream processor's state and input
+      positions, used to recover after failure without reprocessing the entire
+      stream.
+    related: [State, Savepoint, ExactlyOnce]
+  - term: Savepoint
+    definition: >-
+      A user-triggered, durable checkpoint used for graceful upgrades or
+      migrations of stream processing jobs.
+    related: [Checkpoint, State]
+  - term: State
+    definition: >-
+      Per-key or per-window data a stream processor maintains across records,
+      typically backed by an embedded store (e.g., RocksDB) and replicated as
+      a changelog topic.
+    related: [Checkpoint, Changelog, Window]
+  - term: Backpressure
+    definition: >-
+      A signal flowing upstream from a slow consumer or operator that limits
+      the producer's rate to avoid unbounded buffering.
+    related: [FlowControl, Throughput]
+  - term: ServerSentEvents
+    definition: >-
+      A one-directional, HTTP-based streaming format (`text/event-stream`)
+      defined by the HTML Living Standard's EventSource API. Common for
+      LLM token streams and live dashboards.
+    related: [SSE, WebSocket, HTTP]
+  - term: WebSocket
+    definition: >-
+      A full-duplex, bidirectional protocol layered over a single TCP
+      connection that is upgraded from HTTP. RFC 6455. Foundation for
+      chat, collaborative tools, and market data.
+    related: [ServerSentEvents, gRPCStreaming]
+  - term: gRPCStreaming
+    definition: >-
+      The streaming RPC styles in gRPC — server-streaming, client-streaming,
+      and bidirectional — multiplexed over HTTP/2.
+    related: [WebSocket, HTTP2]
+  - term: GraphQLSubscription
+    definition: >-
+      A GraphQL operation type for receiving a stream of typed updates over
+      a long-lived transport (typically WebSocket via graphql-ws).
+    related: [GraphQL, WebSocket]
+  - term: PubSub
+    definition: >-
+      A messaging pattern where publishers emit messages to a logical channel
+      and subscribers receive them without direct coupling to the publisher.
+    related: [Topic, Broker, FanOut]
+  - term: FanOut
+    definition: >-
+      A delivery pattern in which a single message is delivered to many
+      independent subscribers.
+    related: [PubSub, ConsumerGroup]
+  - term: SchemaRegistry
+    definition: >-
+      A centralized service that stores, versions, and enforces compatibility
+      of record schemas (Avro, Protobuf, JSON Schema) used on a streaming
+      platform.
+    related: [Schema, Avro, Protobuf]
+  - term: Tiered Storage
+    definition: >-
+      An architecture that offloads older log segments from broker disks to
+      cheap object storage (S3, GCS, Azure Blob), separating compute cost
+      from retention cost.
+    related: [Retention, Segment, Log]
+  - term: KSQL
+    definition: >-
+      A SQL dialect for streams and tables on Kafka, executed by ksqlDB, that
+      compiles to Kafka Streams topologies.
+    related: [StreamingSQL, KafkaStreams]
+  - term: StreamingSQL
+    definition: >-
+      SQL extended with windowing, watermark, and stream/table semantics so
+      it can express continuous queries over streams.
+    related: [KSQL, Flink, Materialize]

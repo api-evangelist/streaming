@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/streaming/main/json-schema/streaming-stream-record-schema.json",
+  "title": "Stream Record",
+  "description": "An envelope describing a single record on a stream — the unit of data that producers append and consumers read. Generalizes Kafka ProducerRecord/ConsumerRecord, Pulsar Message, Kinesis Record, and Pub/Sub PubsubMessage.",
+  "type": "object",
+  "required": ["stream", "partition", "offset", "value"],
+  "properties": {
+    "stream": {
+      "type": "string",
+      "description": "Identifier of the stream / topic this record belongs to."
+    },
+    "partition": {
+      "type": ["integer", "string"],
+      "description": "Partition / shard identifier the record was written to."
+    },
+    "offset": {
+      "type": ["integer", "string"],
+      "description": "Position of the record within the partition (integer offset, Pulsar MessageId, Kinesis sequence number, Pub/Sub message id)."
+    },
+    "key": {
+      "type": ["string", "null"],
+      "description": "Optional record key used for partition assignment and log-compaction identity. Null indicates an unkeyed record."
+    },
+    "value": {
+      "description": "Record payload. May be a JSON object, a base64-encoded binary blob, or a string, depending on encoding.",
+      "oneOf": [
+        { "type": "object" },
+        { "type": "string" },
+        { "type": "array" },
+        { "type": "null" }
+      ]
+    },
+    "value_encoding": {
+      "type": "string",
+      "enum": ["json", "avro", "protobuf", "text", "base64"],
+      "description": "How the value field is encoded."
+    },
+    "headers": {
+      "type": "object",
+      "description": "User-supplied metadata key/value pairs attached to the record.",
+      "additionalProperties": { "type": "string" }
+    },
+    "event_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the event actually occurred, per the producer."
+    },
+    "ingestion_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the streaming platform appended the record."
+    },
+    "schema_id": {
+      "type": ["string", "integer"],
+      "description": "Schema Registry id used to deserialize the value."
+    },
+    "transaction_id": {
+      "type": "string",
+      "description": "Producer transaction id for transactional writes (exactly-once)."
+    },
+    "trace_context": {
+      "type": "object",
+      "description": "OpenTelemetry / W3C Trace Context propagated via headers.",
+      "properties": {
+        "traceparent": { "type": "string" },
+        "tracestate": { "type": "string" }
+      }
+    }
+  }
+}

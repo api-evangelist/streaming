@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/draft-01/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/streaming/main/json-structure/streaming-stream-structure.json",
+  "title": "Streaming Stream Structure",
+  "description": "Structural typing for a Stream on a streaming platform. Documents the shape of a stream definition as exchanged in catalog and control-plane APIs.",
+  "type": "object",
+  "name": "Stream",
+  "properties": {
+    "id":                  { "type": "string", "required": true },
+    "name":                { "type": "string", "required": true },
+    "description":         { "type": "string" },
+    "platform":            { "type": "string", "required": true, "enum": ["apache-kafka", "apache-pulsar", "redpanda", "nats-jetstream", "aws-kinesis", "gcp-pubsub", "azure-event-hubs", "confluent-cloud", "streamnative", "other"] },
+    "namespace":           { "type": "string" },
+    "partitions":          { "type": "integer", "min": 1 },
+    "replication_factor":  { "type": "integer", "min": 1 },
+    "retention": {
+      "type": "object",
+      "properties": {
+        "mode":      { "type": "string", "enum": ["time", "size", "compact", "compact_and_delete", "infinite"] },
+        "duration":  { "type": "string", "format": "iso8601-duration" },
+        "max_bytes": { "type": "integer" }
+      }
+    },
+    "ordering_key":        { "type": "string" },
+    "delivery_guarantee":  { "type": "string", "enum": ["at-most-once", "at-least-once", "exactly-once"] },
+    "encoding":            { "type": "string", "enum": ["binary", "json", "text", "protobuf", "avro"] },
+    "tiered_storage":      { "type": "boolean" },
+    "created":             { "type": "string", "format": "date-time" },
+    "updated":             { "type": "string", "format": "date-time" },
+    "tags":                { "type": "array", "items": { "type": "string" } }
+  },
+  "examples": [
+    "../examples/streaming-stream-example.json"
+  ]
+}

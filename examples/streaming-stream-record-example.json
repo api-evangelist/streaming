@@ -1,0 +1,31 @@
+{
+  "stream": "kafka://prod-east-1/orders.events",
+  "partition": 11,
+  "offset": 1083472119,
+  "key": "ord_8f2b3c1a",
+  "value": {
+    "event_type": "order.placed",
+    "order_id": "ord_8f2b3c1a",
+    "customer_id": "cus_7a9d2e10",
+    "total_cents": 18745,
+    "currency": "USD",
+    "items": [
+      { "sku": "sku-ace-001", "qty": 2, "unit_price_cents": 7995 },
+      { "sku": "sku-bob-014", "qty": 1, "unit_price_cents": 2755 }
+    ]
+  },
+  "value_encoding": "json",
+  "headers": {
+    "content-type": "application/json",
+    "x-source-service": "checkout-svc",
+    "x-tenant": "retail-prod"
+  },
+  "event_time": "2026-05-22T14:31:07.412Z",
+  "ingestion_time": "2026-05-22T14:31:07.488Z",
+  "schema_id": 184,
+  "transaction_id": "txn-checkout-9b1a44e0-2c12-4f55-8c0c-1e3d1a2b9f30",
+  "trace_context": {
+    "traceparent": "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01",
+    "tracestate": "vendor=retail,sampled=1"
+  }
+}
