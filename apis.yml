@@ -19,397 +19,399 @@ position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Streaming
-  - Real Time
-  - Event Streaming
-  - Change Data Capture
-  - Stream Processing
-  - Server Sent Events
-  - WebSocket
-  - gRPC
-  - GraphQL Subscriptions
-  - Kafka
-  - Pulsar
-  - Kinesis
-  - Flink
+- Streaming
+- Real Time
+- Event Streaming
+- Change Data Capture
+- Stream Processing
+- Server Sent Events
+- WebSocket
+- gRPC
+- GraphQL Subscriptions
+- Kafka
+- Pulsar
+- Kinesis
+- Flink
 created: '2026-05-22'
 modified: '2026-05-22'
 url: https://raw.githubusercontent.com/api-evangelist/streaming/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: streaming:apache-kafka
-    name: Apache Kafka
-    description: >-
-      Distributed, partitioned, replicated log. The reference open-source
-      streaming platform; durable, ordered topics with consumer groups, exactly
-      -once semantics, and the de facto wire protocol for the streaming
-      ecosystem. Native Kafka clients and a REST proxy expose the broker.
-    humanURL: https://kafka.apache.org
-    tags:
-      - Streaming
-      - Log
-      - Open Source
-      - Apache Software Foundation
-    properties:
-      - type: Documentation
-        url: https://kafka.apache.org/documentation/
-      - type: GitHubRepository
-        url: https://github.com/apache/kafka
-      - type: Topic
-        url: https://github.com/api-evangelist/apache-kafka
-  - aid: streaming:apache-pulsar
-    name: Apache Pulsar
-    description: >-
-      Cloud-native, multi-tenant pub/sub and streaming platform with a tiered
-      storage architecture (BookKeeper) that separates compute from storage,
-      native geo-replication, and built-in Functions for lightweight stream
-      processing.
-    humanURL: https://pulsar.apache.org
-    tags:
-      - Streaming
-      - Pub Sub
-      - Open Source
-      - Apache Software Foundation
-    properties:
-      - type: Documentation
-        url: https://pulsar.apache.org/docs/
-      - type: GitHubRepository
-        url: https://github.com/apache/pulsar
-      - type: Topic
-        url: https://github.com/api-evangelist/apache-pulsar
-  - aid: streaming:redpanda
-    name: Redpanda
-    description: >-
-      Kafka-API-compatible streaming platform implemented in C++ with no
-      ZooKeeper/JVM dependency. Single binary, thread-per-core architecture,
-      Raft consensus; positioned as a drop-in for Kafka workloads.
-    humanURL: https://redpanda.com
-    tags:
-      - Streaming
-      - Kafka Compatible
-      - Open Source
-    properties:
-      - type: Documentation
-        url: https://docs.redpanda.com
-      - type: GitHubRepository
-        url: https://github.com/redpanda-data/redpanda
-  - aid: streaming:nats-jetstream
-    name: NATS JetStream
-    description: >-
-      Persistence layer for the NATS messaging system providing at-least-once
-      and exactly-once streaming, key/value and object stores, and durable
-      consumers — designed for edge, IoT, and microservice topologies.
-    humanURL: https://nats.io/
-    tags:
-      - Streaming
-      - Messaging
-      - Open Source
-      - CNCF
-    properties:
-      - type: Documentation
-        url: https://docs.nats.io/nats-concepts/jetstream
-      - type: GitHubRepository
-        url: https://github.com/nats-io/nats-server
-  - aid: streaming:aws-kinesis
-    name: Amazon Kinesis
-    description: >-
-      AWS managed family for real-time streaming: Kinesis Data Streams
-      (shards, partition keys, 24h–365d retention), Kinesis Data Firehose
-      (delivery to S3/Redshift/OpenSearch), and Kinesis Video Streams for
-      media. HTTP/2 SubscribeToShard for low-latency consumers.
-    humanURL: https://aws.amazon.com/kinesis/
-    tags:
-      - Streaming
-      - AWS
-      - Managed
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/kinesis/
-      - type: Topic
-        url: https://github.com/api-evangelist/amazon-kinesis
-  - aid: streaming:gcp-pubsub
-    name: Google Cloud Pub/Sub and Dataflow
-    description: >-
-      GCP's managed messaging (Pub/Sub) and stream-processing (Dataflow,
-      built on Apache Beam) stack. Pub/Sub provides at-least-once and
-      exactly-once delivery with push/pull subscribers; Dataflow runs
-      windowed, watermark-aware Beam pipelines.
-    humanURL: https://cloud.google.com/pubsub
-    tags:
-      - Streaming
-      - GCP
-      - Managed
-    properties:
-      - type: Documentation
-        url: https://cloud.google.com/pubsub/docs
-      - type: Documentation
-        url: https://cloud.google.com/dataflow/docs
-  - aid: streaming:azure-event-hubs
-    name: Azure Event Hubs
-    description: >-
-      Microsoft's managed big-data streaming platform; Kafka-protocol
-      compatible, partitioned, with Capture (delivery to ADLS/Blob) and
-      tight integration with Azure Stream Analytics and Functions.
-    humanURL: https://azure.microsoft.com/en-us/products/event-hubs/
-    tags:
-      - Streaming
-      - Azure
-      - Kafka Compatible
-    properties:
-      - type: Documentation
-        url: https://learn.microsoft.com/en-us/azure/event-hubs/
-  - aid: streaming:confluent-cloud
-    name: Confluent Cloud
-    description: >-
-      Managed Kafka by the original Kafka authors. Cluster, topic, connector,
-      KSQL, Schema Registry, Stream Governance, and Flink offerings exposed
-      via a Confluent Cloud REST API and Terraform provider.
-    humanURL: https://www.confluent.io/confluent-cloud/
-    tags:
-      - Streaming
-      - Kafka
-      - Managed
-    properties:
-      - type: Documentation
-        url: https://docs.confluent.io/cloud/current/overview.html
-      - type: Topic
-        url: https://github.com/api-evangelist/confluent-the-data-streaming-platform
-  - aid: streaming:streamnative
-    name: StreamNative
-    description: >-
-      Managed Apache Pulsar as a service from Pulsar's original contributors,
-      with multi-cloud clusters, Functions, sources/sinks, and a control-plane
-      REST API.
-    humanURL: https://streamnative.io
-    tags:
-      - Streaming
-      - Pulsar
-      - Managed
-    properties:
-      - type: Documentation
-        url: https://docs.streamnative.io
-  - aid: streaming:server-sent-events
-    name: Server-Sent Events (SSE)
-    description: >-
-      One-directional HTTP-based streaming from server to client using the
-      `text/event-stream` media type. Defined by the HTML Living Standard
-      EventSource API; widely used for LLM token streams, dashboards, and
-      live feeds where bidirectionality is not required.
-    humanURL: https://html.spec.whatwg.org/multipage/server-sent-events.html
-    tags:
-      - Streaming
-      - HTTP
-      - Protocol
-      - Standard
-    properties:
-      - type: Documentation
-        url: https://html.spec.whatwg.org/multipage/server-sent-events.html
-      - type: Documentation
-        url: https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events
-  - aid: streaming:websocket
-    name: WebSocket
-    description: >-
-      Full-duplex, bidirectional streaming protocol over a single TCP
-      connection, upgraded from HTTP. RFC 6455. Foundation for chat,
-      collaborative apps, market data, and real-time control planes.
-    humanURL: https://datatracker.ietf.org/doc/html/rfc6455
-    tags:
-      - Streaming
-      - Protocol
-      - Standard
-      - IETF
-    properties:
-      - type: Documentation
-        url: https://datatracker.ietf.org/doc/html/rfc6455
-      - type: Documentation
-        url: https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
-  - aid: streaming:grpc-streaming
-    name: gRPC Streaming
-    description: >-
-      gRPC defines four RPC styles, three of which are streaming: server
-      streaming, client streaming, and bidirectional streaming, all multiplexed
-      over HTTP/2. The default streaming surface for service-to-service
-      systems and Kubernetes-native APIs.
-    humanURL: https://grpc.io
-    tags:
-      - Streaming
-      - Protocol
-      - HTTP2
-      - CNCF
-    properties:
-      - type: Documentation
-        url: https://grpc.io/docs/what-is-grpc/core-concepts/
-      - type: GitHubRepository
-        url: https://github.com/grpc/grpc
-  - aid: streaming:graphql-subscriptions
-    name: GraphQL Subscriptions
-    description: >-
-      The GraphQL operation type for receiving a stream of updates over a
-      long-lived transport (typically WebSocket via the graphql-ws or
-      graphql-transport-ws sub-protocols, or SSE). Used to push schema-
-      defined deltas to clients.
-    humanURL: https://spec.graphql.org/draft/#sec-Subscription
-    tags:
-      - Streaming
-      - GraphQL
-      - Standard
-    properties:
-      - type: Documentation
-        url: https://spec.graphql.org/draft/#sec-Subscription
-      - type: Documentation
-        url: https://github.com/enisdenjo/graphql-ws
-  - aid: streaming:kafka-connect
-    name: Kafka Connect
-    description: >-
-      Framework and runtime for source/sink connectors that move data into and
-      out of Kafka. Distributed mode runs a REST-controlled cluster of workers
-      managing connector and task lifecycle.
-    humanURL: https://kafka.apache.org/documentation/#connect
-    tags:
-      - Streaming
-      - Connectors
-      - Kafka
-      - Open Source
-    properties:
-      - type: Documentation
-        url: https://kafka.apache.org/documentation/#connect
-      - type: Topic
-        url: https://github.com/api-evangelist/kafka-connect
-  - aid: streaming:debezium
-    name: Debezium
-    description: >-
-      Change-data-capture (CDC) platform that streams row-level database
-      changes (Postgres, MySQL, MongoDB, SQL Server, Oracle, Cassandra) as
-      Kafka records using each database's native replication log.
-    humanURL: https://debezium.io
-    tags:
-      - Streaming
-      - Change Data Capture
-      - Open Source
-      - Red Hat
-    properties:
-      - type: Documentation
-        url: https://debezium.io/documentation/
-      - type: GitHubRepository
-        url: https://github.com/debezium/debezium
-  - aid: streaming:apache-flink
-    name: Apache Flink
-    description: >-
-      Distributed, stateful stream-processing engine with event-time semantics,
-      windowing, watermarks, and exactly-once state. SQL, DataStream, and Table
-      APIs; reference engine for sub-second latency analytics on streams.
-    humanURL: https://flink.apache.org
-    tags:
-      - Streaming
-      - Stream Processing
-      - Open Source
-      - Apache Software Foundation
-    properties:
-      - type: Documentation
-        url: https://nightlies.apache.org/flink/flink-docs-stable/
-      - type: GitHubRepository
-        url: https://github.com/apache/flink
-      - type: Topic
-        url: https://github.com/api-evangelist/apache-flink
-  - aid: streaming:spark-structured-streaming
-    name: Spark Structured Streaming
-    description: >-
-      Stream-processing API built on Spark SQL using a micro-batch (and
-      experimental continuous) execution model. Treats a stream as an
-      unbounded table.
-    humanURL: https://spark.apache.org/streaming/
-    tags:
-      - Streaming
-      - Stream Processing
-      - Open Source
-      - Apache Software Foundation
-    properties:
-      - type: Documentation
-        url: https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html
-  - aid: streaming:materialize
-    name: Materialize
-    description: >-
-      Operational data warehouse and streaming SQL database built on
-      Differential Dataflow. Maintains incrementally updated materialized
-      views over streaming sources with millisecond freshness.
-    humanURL: https://materialize.com
-    tags:
-      - Streaming
-      - Streaming SQL
-      - Database
-    properties:
-      - type: Documentation
-        url: https://materialize.com/docs/
-      - type: Topic
-        url: https://github.com/api-evangelist/materialize
-  - aid: streaming:tinybird
-    name: Tinybird
-    description: >-
-      Real-time analytics platform built on ClickHouse; ingests streams via
-      HTTP, Kafka, or CDC, exposes SQL pipes as parameterized HTTP API
-      endpoints with auth tokens.
-    humanURL: https://www.tinybird.co
-    tags:
-      - Streaming
-      - Real Time Analytics
-      - ClickHouse
-    properties:
-      - type: Documentation
-        url: https://www.tinybird.co/docs
-  - aid: streaming:bytewax
-    name: Bytewax
-    description: >-
-      Open-source Python-native stream-processing framework built on Timely
-      Dataflow; targets data scientists and Python teams building real-time
-      ML and data pipelines.
-    humanURL: https://bytewax.io
-    tags:
-      - Streaming
-      - Stream Processing
-      - Python
-      - Open Source
-    properties:
-      - type: Documentation
-        url: https://docs.bytewax.io
-      - type: GitHubRepository
-        url: https://github.com/bytewax/bytewax
-  - aid: streaming:apache-beam
-    name: Apache Beam
-    description: >-
-      Unified batch and streaming programming model. Beam pipelines run on
-      multiple runners (Dataflow, Flink, Spark, Samza), defining the canonical
-      event-time / watermark / window / trigger semantics for stream
-      processing.
-    humanURL: https://beam.apache.org
-    tags:
-      - Streaming
-      - Stream Processing
-      - Open Source
-      - Apache Software Foundation
-    properties:
-      - type: Documentation
-        url: https://beam.apache.org/documentation/
-      - type: GitHubRepository
-        url: https://github.com/apache/beam
+- aid: streaming:apache-kafka
+  name: Apache Kafka
+  description: >-
+    Distributed, partitioned, replicated log. The reference open-source
+    streaming platform; durable, ordered topics with consumer groups, exactly
+    -once semantics, and the de facto wire protocol for the streaming
+    ecosystem. Native Kafka clients and a REST proxy expose the broker.
+  humanURL: https://kafka.apache.org
+  tags:
+  - Streaming
+  - Log
+  - Open Source
+  - Apache Software Foundation
+  properties:
+  - type: Documentation
+    url: https://kafka.apache.org/documentation/
+  - type: GitHubRepository
+    url: https://github.com/apache/kafka
+  - type: Topic
+    url: https://github.com/api-evangelist/apache-kafka
+- aid: streaming:apache-pulsar
+  name: Apache Pulsar
+  description: >-
+    Cloud-native, multi-tenant pub/sub and streaming platform with a tiered
+    storage architecture (BookKeeper) that separates compute from storage,
+    native geo-replication, and built-in Functions for lightweight stream
+    processing.
+  humanURL: https://pulsar.apache.org
+  tags:
+  - Streaming
+  - Pub Sub
+  - Open Source
+  - Apache Software Foundation
+  properties:
+  - type: Documentation
+    url: https://pulsar.apache.org/docs/
+  - type: GitHubRepository
+    url: https://github.com/apache/pulsar
+  - type: Topic
+    url: https://github.com/api-evangelist/apache-pulsar
+- aid: streaming:redpanda
+  name: Redpanda
+  description: >-
+    Kafka-API-compatible streaming platform implemented in C++ with no
+    ZooKeeper/JVM dependency. Single binary, thread-per-core architecture,
+    Raft consensus; positioned as a drop-in for Kafka workloads.
+  humanURL: https://redpanda.com
+  tags:
+  - Streaming
+  - Kafka Compatible
+  - Open Source
+  properties:
+  - type: Documentation
+    url: https://docs.redpanda.com
+  - type: GitHubRepository
+    url: https://github.com/redpanda-data/redpanda
+- aid: streaming:nats-jetstream
+  name: NATS JetStream
+  description: >-
+    Persistence layer for the NATS messaging system providing at-least-once
+    and exactly-once streaming, key/value and object stores, and durable
+    consumers — designed for edge, IoT, and microservice topologies.
+  humanURL: https://nats.io/
+  tags:
+  - Streaming
+  - Messaging
+  - Open Source
+  - CNCF
+  properties:
+  - type: Documentation
+    url: https://docs.nats.io/nats-concepts/jetstream
+  - type: GitHubRepository
+    url: https://github.com/nats-io/nats-server
+- aid: streaming:aws-kinesis
+  name: Amazon Kinesis
+  description: >-
+    AWS managed family for real-time streaming: Kinesis Data Streams
+    (shards, partition keys, 24h–365d retention), Kinesis Data Firehose
+    (delivery to S3/Redshift/OpenSearch), and Kinesis Video Streams for
+    media. HTTP/2 SubscribeToShard for low-latency consumers.
+  humanURL: https://aws.amazon.com/kinesis/
+  tags:
+  - Streaming
+  - AWS
+  - Managed
+  properties:
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/
+  - type: Topic
+    url: https://github.com/api-evangelist/amazon-kinesis
+- aid: streaming:gcp-pubsub
+  name: Google Cloud Pub/Sub and Dataflow
+  description: >-
+    GCP's managed messaging (Pub/Sub) and stream-processing (Dataflow,
+    built on Apache Beam) stack. Pub/Sub provides at-least-once and
+    exactly-once delivery with push/pull subscribers; Dataflow runs
+    windowed, watermark-aware Beam pipelines.
+  humanURL: https://cloud.google.com/pubsub
+  tags:
+  - Streaming
+  - GCP
+  - Managed
+  properties:
+  - type: Documentation
+    url: https://cloud.google.com/pubsub/docs
+  - type: Documentation
+    url: https://cloud.google.com/dataflow/docs
+- aid: streaming:azure-event-hubs
+  name: Azure Event Hubs
+  description: >-
+    Microsoft's managed big-data streaming platform; Kafka-protocol
+    compatible, partitioned, with Capture (delivery to ADLS/Blob) and
+    tight integration with Azure Stream Analytics and Functions.
+  humanURL: https://azure.microsoft.com/en-us/products/event-hubs/
+  tags:
+  - Streaming
+  - Azure
+  - Kafka Compatible
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/event-hubs/
+- aid: streaming:confluent-cloud
+  name: Confluent Cloud
+  description: >-
+    Managed Kafka by the original Kafka authors. Cluster, topic, connector,
+    KSQL, Schema Registry, Stream Governance, and Flink offerings exposed
+    via a Confluent Cloud REST API and Terraform provider.
+  humanURL: https://www.confluent.io/confluent-cloud/
+  tags:
+  - Streaming
+  - Kafka
+  - Managed
+  properties:
+  - type: Documentation
+    url: https://docs.confluent.io/cloud/current/overview.html
+  - type: Topic
+    url: https://github.com/api-evangelist/confluent-the-data-streaming-platform
+- aid: streaming:streamnative
+  name: StreamNative
+  description: >-
+    Managed Apache Pulsar as a service from Pulsar's original contributors,
+    with multi-cloud clusters, Functions, sources/sinks, and a control-plane
+    REST API.
+  humanURL: https://streamnative.io
+  tags:
+  - Streaming
+  - Pulsar
+  - Managed
+  properties:
+  - type: Documentation
+    url: https://docs.streamnative.io
+- aid: streaming:server-sent-events
+  name: Server-Sent Events (SSE)
+  description: >-
+    One-directional HTTP-based streaming from server to client using the
+    `text/event-stream` media type. Defined by the HTML Living Standard
+    EventSource API; widely used for LLM token streams, dashboards, and
+    live feeds where bidirectionality is not required.
+  humanURL: https://html.spec.whatwg.org/multipage/server-sent-events.html
+  tags:
+  - Streaming
+  - HTTP
+  - Protocol
+  - Standard
+  properties:
+  - type: Documentation
+    url: https://html.spec.whatwg.org/multipage/server-sent-events.html
+  - type: Documentation
+    url: https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events
+- aid: streaming:websocket
+  name: WebSocket
+  description: >-
+    Full-duplex, bidirectional streaming protocol over a single TCP
+    connection, upgraded from HTTP. RFC 6455. Foundation for chat,
+    collaborative apps, market data, and real-time control planes.
+  humanURL: https://datatracker.ietf.org/doc/html/rfc6455
+  tags:
+  - Streaming
+  - Protocol
+  - Standard
+  - IETF
+  properties:
+  - type: Documentation
+    url: https://datatracker.ietf.org/doc/html/rfc6455
+  - type: Documentation
+    url: https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
+- aid: streaming:grpc-streaming
+  name: gRPC Streaming
+  description: >-
+    gRPC defines four RPC styles, three of which are streaming: server
+    streaming, client streaming, and bidirectional streaming, all multiplexed
+    over HTTP/2. The default streaming surface for service-to-service
+    systems and Kubernetes-native APIs.
+  humanURL: https://grpc.io
+  tags:
+  - Streaming
+  - Protocol
+  - HTTP2
+  - CNCF
+  properties:
+  - type: Documentation
+    url: https://grpc.io/docs/what-is-grpc/core-concepts/
+  - type: GitHubRepository
+    url: https://github.com/grpc/grpc
+- aid: streaming:graphql-subscriptions
+  name: GraphQL Subscriptions
+  description: >-
+    The GraphQL operation type for receiving a stream of updates over a
+    long-lived transport (typically WebSocket via the graphql-ws or
+    graphql-transport-ws sub-protocols, or SSE). Used to push schema-
+    defined deltas to clients.
+  humanURL: https://spec.graphql.org/draft/#sec-Subscription
+  tags:
+  - Streaming
+  - GraphQL
+  - Standard
+  properties:
+  - type: Documentation
+    url: https://spec.graphql.org/draft/#sec-Subscription
+  - type: Documentation
+    url: https://github.com/enisdenjo/graphql-ws
+  - url: graphql/streaming-graphql.md
+    type: GraphQL
+- aid: streaming:kafka-connect
+  name: Kafka Connect
+  description: >-
+    Framework and runtime for source/sink connectors that move data into and
+    out of Kafka. Distributed mode runs a REST-controlled cluster of workers
+    managing connector and task lifecycle.
+  humanURL: https://kafka.apache.org/documentation/#connect
+  tags:
+  - Streaming
+  - Connectors
+  - Kafka
+  - Open Source
+  properties:
+  - type: Documentation
+    url: https://kafka.apache.org/documentation/#connect
+  - type: Topic
+    url: https://github.com/api-evangelist/kafka-connect
+- aid: streaming:debezium
+  name: Debezium
+  description: >-
+    Change-data-capture (CDC) platform that streams row-level database
+    changes (Postgres, MySQL, MongoDB, SQL Server, Oracle, Cassandra) as
+    Kafka records using each database's native replication log.
+  humanURL: https://debezium.io
+  tags:
+  - Streaming
+  - Change Data Capture
+  - Open Source
+  - Red Hat
+  properties:
+  - type: Documentation
+    url: https://debezium.io/documentation/
+  - type: GitHubRepository
+    url: https://github.com/debezium/debezium
+- aid: streaming:apache-flink
+  name: Apache Flink
+  description: >-
+    Distributed, stateful stream-processing engine with event-time semantics,
+    windowing, watermarks, and exactly-once state. SQL, DataStream, and Table
+    APIs; reference engine for sub-second latency analytics on streams.
+  humanURL: https://flink.apache.org
+  tags:
+  - Streaming
+  - Stream Processing
+  - Open Source
+  - Apache Software Foundation
+  properties:
+  - type: Documentation
+    url: https://nightlies.apache.org/flink/flink-docs-stable/
+  - type: GitHubRepository
+    url: https://github.com/apache/flink
+  - type: Topic
+    url: https://github.com/api-evangelist/apache-flink
+- aid: streaming:spark-structured-streaming
+  name: Spark Structured Streaming
+  description: >-
+    Stream-processing API built on Spark SQL using a micro-batch (and
+    experimental continuous) execution model. Treats a stream as an
+    unbounded table.
+  humanURL: https://spark.apache.org/streaming/
+  tags:
+  - Streaming
+  - Stream Processing
+  - Open Source
+  - Apache Software Foundation
+  properties:
+  - type: Documentation
+    url: https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html
+- aid: streaming:materialize
+  name: Materialize
+  description: >-
+    Operational data warehouse and streaming SQL database built on
+    Differential Dataflow. Maintains incrementally updated materialized
+    views over streaming sources with millisecond freshness.
+  humanURL: https://materialize.com
+  tags:
+  - Streaming
+  - Streaming SQL
+  - Database
+  properties:
+  - type: Documentation
+    url: https://materialize.com/docs/
+  - type: Topic
+    url: https://github.com/api-evangelist/materialize
+- aid: streaming:tinybird
+  name: Tinybird
+  description: >-
+    Real-time analytics platform built on ClickHouse; ingests streams via
+    HTTP, Kafka, or CDC, exposes SQL pipes as parameterized HTTP API
+    endpoints with auth tokens.
+  humanURL: https://www.tinybird.co
+  tags:
+  - Streaming
+  - Real Time Analytics
+  - ClickHouse
+  properties:
+  - type: Documentation
+    url: https://www.tinybird.co/docs
+- aid: streaming:bytewax
+  name: Bytewax
+  description: >-
+    Open-source Python-native stream-processing framework built on Timely
+    Dataflow; targets data scientists and Python teams building real-time
+    ML and data pipelines.
+  humanURL: https://bytewax.io
+  tags:
+  - Streaming
+  - Stream Processing
+  - Python
+  - Open Source
+  properties:
+  - type: Documentation
+    url: https://docs.bytewax.io
+  - type: GitHubRepository
+    url: https://github.com/bytewax/bytewax
+- aid: streaming:apache-beam
+  name: Apache Beam
+  description: >-
+    Unified batch and streaming programming model. Beam pipelines run on
+    multiple runners (Dataflow, Flink, Spark, Samza), defining the canonical
+    event-time / watermark / window / trigger semantics for stream
+    processing.
+  humanURL: https://beam.apache.org
+  tags:
+  - Streaming
+  - Stream Processing
+  - Open Source
+  - Apache Software Foundation
+  properties:
+  - type: Documentation
+    url: https://beam.apache.org/documentation/
+  - type: GitHubRepository
+    url: https://github.com/apache/beam
 common:
-  - type: JSONSchema
-    url: json-schema/streaming-stream-schema.json
-  - type: JSONSchema
-    url: json-schema/streaming-stream-record-schema.json
-  - type: JSONSchema
-    url: json-schema/streaming-stream-platform-schema.json
-  - type: JSONLD
-    url: json-ld/streaming-context.jsonld
-  - type: Vocabulary
-    url: vocabulary/streaming-vocabulary.yml
-  - type: Examples
-    url: examples/streaming-stream-example.json
-  - type: Examples
-    url: examples/streaming-stream-record-example.json
-  - type: Examples
-    url: examples/streaming-stream-platform-example.json
+- type: JSONSchema
+  url: json-schema/streaming-stream-schema.json
+- type: JSONSchema
+  url: json-schema/streaming-stream-record-schema.json
+- type: JSONSchema
+  url: json-schema/streaming-stream-platform-schema.json
+- type: JSONLD
+  url: json-ld/streaming-context.jsonld
+- type: Vocabulary
+  url: vocabulary/streaming-vocabulary.yml
+- type: Examples
+  url: examples/streaming-stream-example.json
+- type: Examples
+  url: examples/streaming-stream-record-example.json
+- type: Examples
+  url: examples/streaming-stream-platform-example.json
 include: []
 maintainers:
-  - FN: Kin Lane
-    email: info@apievangelist.com
-    X-twitter: apievangelist
+- FN: Kin Lane
+  email: info@apievangelist.com
+  X-twitter: apievangelist
