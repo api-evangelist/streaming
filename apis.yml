@@ -394,6 +394,10 @@ apis:
   - type: GitHubRepository
     url: https://github.com/apache/beam
 common:
+- type: VulnerabilityDisclosure
+  url: security/streaming-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/streaming-domain-security.yml
 - type: JSONSchema
   url: json-schema/streaming-stream-schema.json
 - type: JSONSchema
