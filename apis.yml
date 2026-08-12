@@ -405,6 +405,9 @@ apis:
   - type: GitHubRepository
     url: https://github.com/apache/beam
 common:
+- type: License
+  name: Apache-2.0
+  url: https://github.com/apache/kafka/blob/trunk/LICENSE
 - type: VulnerabilityDisclosure
   url: security/streaming-vulnerability-disclosure.yml
 - type: DomainSecurity
