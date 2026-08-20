@@ -31,6 +31,20 @@ access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/streaming.png
 tags:
 - Streaming
+- Real-Time
+- Event Streaming
+- Change Data Capture
+- Stream Processing
+- Server-Sent Events
+- WebSocket
+- gRPC
+- GraphQL Subscriptions
+- Kafka
+- Pulsar
+- Kinesis
+- Flink
+tags_raw:
+- Streaming
 - Real Time
 - Event Streaming
 - Change Data Capture
@@ -59,6 +73,11 @@ apis:
   tags:
   - Streaming
   - Log
+  - Open-Source
+  - Apache Software Foundation
+  tags_raw:
+  - Streaming
+  - Log
   - Open Source
   - Apache Software Foundation
   properties:
@@ -77,6 +96,11 @@ apis:
     processing.
   humanURL: https://pulsar.apache.org
   tags:
+  - Streaming
+  - Pub-Sub
+  - Open-Source
+  - Apache Software Foundation
+  tags_raw:
   - Streaming
   - Pub Sub
   - Open Source
@@ -98,6 +122,10 @@ apis:
   tags:
   - Streaming
   - Kafka Compatible
+  - Open-Source
+  tags_raw:
+  - Streaming
+  - Kafka Compatible
   - Open Source
   properties:
   - type: Documentation
@@ -112,6 +140,11 @@ apis:
     consumers — designed for edge, IoT, and microservice topologies.
   humanURL: https://nats.io/
   tags:
+  - Streaming
+  - Messaging
+  - Open-Source
+  - CNCF
+  tags_raw:
   - Streaming
   - Messaging
   - Open Source
@@ -245,6 +278,11 @@ apis:
   tags:
   - Streaming
   - Protocol
+  - HTTP/2
+  - CNCF
+  tags_raw:
+  - Streaming
+  - Protocol
   - HTTP2
   - CNCF
   properties:
@@ -282,6 +320,11 @@ apis:
   - Streaming
   - Connectors
   - Kafka
+  - Open-Source
+  tags_raw:
+  - Streaming
+  - Connectors
+  - Kafka
   - Open Source
   properties:
   - type: Documentation
@@ -296,6 +339,11 @@ apis:
     Kafka records using each database's native replication log.
   humanURL: https://debezium.io
   tags:
+  - Streaming
+  - Change Data Capture
+  - Open-Source
+  - Red Hat
+  tags_raw:
   - Streaming
   - Change Data Capture
   - Open Source
@@ -315,6 +363,11 @@ apis:
   tags:
   - Streaming
   - Stream Processing
+  - Open-Source
+  - Apache Software Foundation
+  tags_raw:
+  - Streaming
+  - Stream Processing
   - Open Source
   - Apache Software Foundation
   properties:
@@ -332,6 +385,11 @@ apis:
     unbounded table.
   humanURL: https://spark.apache.org/streaming/
   tags:
+  - Streaming
+  - Stream Processing
+  - Open-Source
+  - Apache Software Foundation
+  tags_raw:
   - Streaming
   - Stream Processing
   - Open Source
@@ -364,6 +422,10 @@ apis:
   humanURL: https://www.tinybird.co
   tags:
   - Streaming
+  - Real-Time Analytics
+  - ClickHouse
+  tags_raw:
+  - Streaming
   - Real Time Analytics
   - ClickHouse
   properties:
@@ -377,6 +439,11 @@ apis:
     ML and data pipelines.
   humanURL: https://bytewax.io
   tags:
+  - Streaming
+  - Stream Processing
+  - Python
+  - Open-Source
+  tags_raw:
   - Streaming
   - Stream Processing
   - Python
@@ -395,6 +462,11 @@ apis:
     processing.
   humanURL: https://beam.apache.org
   tags:
+  - Streaming
+  - Stream Processing
+  - Open-Source
+  - Apache Software Foundation
+  tags_raw:
   - Streaming
   - Stream Processing
   - Open Source
