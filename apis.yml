@@ -15,6 +15,18 @@ description: >-
   real-time, high-throughput, partitioned, and often bidirectional pipes,
   rather than discrete event envelopes or static contract documents.
 type: Index
+deliveryModel:
+  model: self-hosted
+  license: Apache-2.0
+  open_source: true
+  commercial: false
+  callable_host: false
+  label: Self-hosted open source · you run it yourself
+  confidence: high
+  source:
+  - license
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
@@ -477,6 +489,14 @@ apis:
   - type: GitHubRepository
     url: https://github.com/apache/beam
 common:
+- type: IssueTracker
+  url: https://github.com/apache/kafka/issues
+- type: SecurityPolicy
+  url: https://github.com/apache/kafka/blob/trunk/SECURITY.md
+- type: CodeOfConduct
+  url: https://github.com/apache/.github/blob/main/.github/CODE_OF_CONDUCT.md
+- type: ContributionGuide
+  url: https://github.com/apache/kafka/blob/trunk/CONTRIBUTING.md
 - type: License
   name: Apache-2.0
   url: https://github.com/apache/kafka/blob/trunk/LICENSE
