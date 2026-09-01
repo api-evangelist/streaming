@@ -47,7 +47,7 @@ tags:
 - Event Streaming
 - Change Data Capture
 - Stream Processing
-- Server Sent Events
+- Server-Sent Events
 - WebSocket
 - gRPC
 - GraphQL Subscriptions
@@ -109,7 +109,7 @@ apis:
   humanURL: https://pulsar.apache.org
   tags:
   - Streaming
-  - Pub Sub
+  - Pub-Sub
   - Open-Source
   - Apache Software Foundation
   tags_raw:
@@ -290,7 +290,7 @@ apis:
   tags:
   - Streaming
   - Protocol
-  - HTTP2
+  - HTTP/2
   - CNCF
   tags_raw:
   - Streaming
@@ -434,7 +434,7 @@ apis:
   humanURL: https://www.tinybird.co
   tags:
   - Streaming
-  - Real Time Analytics
+  - Real-Time Analytics
   - ClickHouse
   tags_raw:
   - Streaming
