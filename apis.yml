@@ -256,6 +256,11 @@ apis:
   - Streaming
   - HTTP
   - Protocol
+  - Standards
+  tags_raw:
+  - Streaming
+  - HTTP
+  - Protocol
   - Standard
   properties:
   - type: Documentation
@@ -270,6 +275,11 @@ apis:
     collaborative apps, market data, and real-time control planes.
   humanURL: https://datatracker.ietf.org/doc/html/rfc6455
   tags:
+  - Streaming
+  - Protocol
+  - Standards
+  - IETF
+  tags_raw:
   - Streaming
   - Protocol
   - Standard
@@ -311,6 +321,10 @@ apis:
     defined deltas to clients.
   humanURL: https://spec.graphql.org/draft/#sec-Subscription
   tags:
+  - Streaming
+  - GraphQL
+  - Standards
+  tags_raw:
   - Streaming
   - GraphQL
   - Standard
