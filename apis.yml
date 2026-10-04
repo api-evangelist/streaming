@@ -1,5 +1,6 @@
 aid: streaming
 name: Streaming
+kind: topic
 description: >-
   Streaming is a topic catalog of the protocols, platforms, and processing
   engines used to move and transform real-time, high-volume, often bidirectional
@@ -85,13 +86,14 @@ apis:
   tags:
   - Streaming
   - Log
-  - Open-Source
+  - Open Source
   - Apache Software Foundation
   tags_raw:
   - Streaming
   - Log
   - Open Source
   - Apache Software Foundation
+  - Open-Source
   properties:
   - type: Documentation
     url: https://kafka.apache.org/documentation/
@@ -110,13 +112,14 @@ apis:
   tags:
   - Streaming
   - Pub-Sub
-  - Open-Source
+  - Open Source
   - Apache Software Foundation
   tags_raw:
   - Streaming
   - Pub Sub
   - Open Source
   - Apache Software Foundation
+  - Open-Source
   properties:
   - type: Documentation
     url: https://pulsar.apache.org/docs/
@@ -134,11 +137,12 @@ apis:
   tags:
   - Streaming
   - Kafka Compatible
-  - Open-Source
+  - Open Source
   tags_raw:
   - Streaming
   - Kafka Compatible
   - Open Source
+  - Open-Source
   properties:
   - type: Documentation
     url: https://docs.redpanda.com
@@ -154,13 +158,14 @@ apis:
   tags:
   - Streaming
   - Messaging
-  - Open-Source
+  - Open Source
   - CNCF
   tags_raw:
   - Streaming
   - Messaging
   - Open Source
   - CNCF
+  - Open-Source
   properties:
   - type: Documentation
     url: https://docs.nats.io/nats-concepts/jetstream
@@ -346,12 +351,13 @@ apis:
   - Streaming
   - Connectors
   - Kafka
-  - Open-Source
+  - Open Source
   tags_raw:
   - Streaming
   - Connectors
   - Kafka
   - Open Source
+  - Open-Source
   properties:
   - type: Documentation
     url: https://kafka.apache.org/documentation/#connect
@@ -367,13 +373,14 @@ apis:
   tags:
   - Streaming
   - Change Data Capture
-  - Open-Source
+  - Open Source
   - Red Hat
   tags_raw:
   - Streaming
   - Change Data Capture
   - Open Source
   - Red Hat
+  - Open-Source
   properties:
   - type: Documentation
     url: https://debezium.io/documentation/
@@ -389,13 +396,14 @@ apis:
   tags:
   - Streaming
   - Stream Processing
-  - Open-Source
+  - Open Source
   - Apache Software Foundation
   tags_raw:
   - Streaming
   - Stream Processing
   - Open Source
   - Apache Software Foundation
+  - Open-Source
   properties:
   - type: Documentation
     url: https://nightlies.apache.org/flink/flink-docs-stable/
@@ -413,13 +421,14 @@ apis:
   tags:
   - Streaming
   - Stream Processing
-  - Open-Source
+  - Open Source
   - Apache Software Foundation
   tags_raw:
   - Streaming
   - Stream Processing
   - Open Source
   - Apache Software Foundation
+  - Open-Source
   properties:
   - type: Documentation
     url: https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html
@@ -468,12 +477,13 @@ apis:
   - Streaming
   - Stream Processing
   - Python
-  - Open-Source
+  - Open Source
   tags_raw:
   - Streaming
   - Stream Processing
   - Python
   - Open Source
+  - Open-Source
   properties:
   - type: Documentation
     url: https://docs.bytewax.io
@@ -490,13 +500,14 @@ apis:
   tags:
   - Streaming
   - Stream Processing
-  - Open-Source
+  - Open Source
   - Apache Software Foundation
   tags_raw:
   - Streaming
   - Stream Processing
   - Open Source
   - Apache Software Foundation
+  - Open-Source
   properties:
   - type: Documentation
     url: https://beam.apache.org/documentation/
