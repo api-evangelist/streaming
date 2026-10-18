@@ -111,7 +111,7 @@ apis:
   humanURL: https://pulsar.apache.org
   tags:
   - Streaming
-  - Pub-Sub
+  - Pub/Sub
   - Open Source
   - Apache Software Foundation
   tags_raw:
@@ -213,6 +213,10 @@ apis:
     tight integration with Azure Stream Analytics and Functions.
   humanURL: https://azure.microsoft.com/en-us/products/event-hubs/
   tags:
+  - Streaming
+  - Microsoft Azure
+  - Kafka Compatible
+  tags_raw:
   - Streaming
   - Azure
   - Kafka Compatible
